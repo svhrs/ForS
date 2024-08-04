@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Handlee&family=Kalam:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #8bdbfd;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .flip-card {
+        background-color: transparent;
+        width: 200px;
+        height: 250px;
+        perspective: 1000px;
+        margin: 20px;
+      }
+
+      .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .flip-card-front,
+      .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .flip-card-front {
+        background-color: #9bdffc;
+      }
+
+      .flip-card-front img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      .flip-card-back {
+        background-color: #9bdffc;
+        transform: rotateY(180deg);
+      }
+
+      .flip-card-back h3 {
+        margin: 0;
+      }
+
+      .flip-card.flip .flip-card-inner {
+        transform: rotateY(180deg);
+      }
+
+      .cont {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: first baseline;
+        margin-top: 20px;
+      }
+
+      a {
+        text-decoration: none;
+        color: black;
+        padding: 10px;
+        background-color: #bde9fc;
+        border-radius: 10px;
+        position: relative;
+      }
+
+      #back {
+        font-family: "Handlee", cursive;
+        font-style: italic;
+        font-size: large;
+      }
+    </style>
+  </head>
+  <body>
+    <p style="margin-bottom: 10px">
+      &ensp;&ensp;&ensp;Flip Image Before Making Any Decision
+    </p>
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="blue.jpeg" alt="" style="border-radius: 10px" />
+        </div>
+        <div class="flip-card-back">
+          <p id="back">
+            Just the thought of you is enough to get me through the day. I only
+            want to hold your hand and never let it go, I just wanna say that I
+            love you more than anything in this world.” “I hope you know that I
+            would sacrifice anything or balance it somehow
+            in order to be with you.
+          </p>
+        </div>
+      </div>
+    </div>
+    <h3>&ensp;&ensp;Are You Ready To Stay With Me ?</h3>
+    <div class="cont">
+      <a href="3.html">Yes</a>
+      <a id="no-btn">No</a>
+    </div>
+
+    <script>
+      // Get the flip card element
+      const flipCard = document.querySelector(".flip-card");
+
+      // Add event listener to flip the card
+      flipCard.addEventListener("click", () => {
+        flipCard.classList.toggle("flip");
+      });
+
+      const noBtn = document.getElementById("no-btn");
+
+      // Add event listener to move the no button randomly
+      noBtn.addEventListener("click", () => {
+        const randomX = Math.floor(Math.random() * 90 + 25);
+        const randomY = Math.floor(Math.random() * 90 + 25);
+        noBtn.style.top = `${randomY}px`;
+        noBtn.style.left = `${randomX}px`;
+      });
+    </script>
+  </body>
+</html>
